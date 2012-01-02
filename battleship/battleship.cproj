@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{04B95A86-94BC-4B9F-8523-D9577BE75351}</ProjectGuid>
+    <ProjectGuid>{96F6925C-FE75-4D80-8335-666E1E62937A}</ProjectGuid>
     <Target>Bin</Target>
     <Language>CPP</Language>
     <Compiler>
@@ -29,9 +29,9 @@
     <CompileTarget>Bin</CompileTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="battleship.cpp" />
+    <None Include="battleship.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="battleship.h" />
+    <Compile Include="battleship.cpp" />
   </ItemGroup>
 </Project>
