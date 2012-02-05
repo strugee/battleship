@@ -19,6 +19,7 @@
     <SourceDirectory>.</SourceDirectory>
     <OutputName>battleship</OutputName>
     <CompileTarget>Bin</CompileTarget>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>

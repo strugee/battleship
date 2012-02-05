@@ -10,8 +10,12 @@ using namespace std;
 
 int main()
 {
-	cout << "Initializing... ";
+	cout << "Initializing... \n";
 	battleship battleship;
+	cout << "Setting active player...\n";
+	battleship.changeActivePlayer(1);
+	cout << "Rendering...\n";
+	battleship.render();
 	cout << "Done. Unfortunately, nothing else can be done. Bye!";
 	return 0;
 }

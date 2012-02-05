@@ -3,6 +3,7 @@
 
 //#include <iostream>
 //#include <cstdlib>
+//using namespace std;
 
 // header guard - so compilers don't throw errors if this is #included more than once
 #ifndef __BATTLESHIP_H_INCLUDED__
@@ -10,26 +11,29 @@
 
 #include <iostream>
 #include <cstdlib>
+using namespace std;
 
 class board {
 	public:
+		friend class battleship;
+	private:
 		void updateinternalboard(int coordinate1, int coordinate2, int value) {
 			board[coordinate1][coordinate2] = value;
 		}
-	private:
+		
 		int getCoordinateValue(int coordinate1, int coordinate2) {
 			return board[coordinate1][coordinate2];
 		}
 		int board[9][9];
-}
+};
 
 class player {
 	public:
-	
+		friend class battleship;
 	private:
 		board ships; // this board holds the ships of the player.
 		board shots; // this board tracks the player's shots at the other player's ships
-}
+};
 
 class battleship {
 	public:
@@ -52,16 +56,16 @@ class battleship {
 		
 		void render() {
 			if (activePlayer == 1) {
-				for (int coordinate1 = 0; coordinate1 <= 10; coordinate1++) {
-					cout << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----";
-					for (int coordinate2; coordinate2 <= 10; coordinate2++) {
-						cout << "| " << coordinate2 << " ";
-						if (coordinate2 == 10) {
-							cout << "|"
+				for (int coordinate1 = 0; coordinate1 <= 9; coordinate1++) {
+					cout << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----\n";
+					for (int coordinate2; coordinate2 <= 9; coordinate2++) {
+						cout << "| " << player1.ships.getCoordinateValue(coordinate1, coordinate2) << " ";
+						if (coordinate2 == 9) {
+							cout << "|\n";
 						}
 					}
 				}
-				cout << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----";
+				cout << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----" << "-----\n";
 			}
 		}
 		
@@ -85,10 +89,10 @@ class battleship {
 		}
 		
 	private:
-		int activePlayer = 1;
+		int activePlayer;
 		player player1;
 		player player2;
-}
+};
 
-// end header guard
+/* end header guard */
 #endif
